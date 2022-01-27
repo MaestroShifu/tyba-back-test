@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "a2bdb62c-a42c-47e1-a24d-42b205827c96",
+		"name": "Tyba Test Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register new user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"sdanielsarsantos@gmail.com\",\n  \"name\": \"Daniel Steven\",\n  \"lastName\": \"Sarmiento Santos\",\n  \"phone\": \"3103082091\",\n  \"password\": \"maestroshifu1919\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"sdanielsarsantos@gmail.com\",\n    \"password\": \"maestroshifu1919\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search restaurants by coordenates",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWYyMWM2ZjU5OTdmYWVlNzVlZGIzOTMiLCJpc3MiOiJkYW5pZWwgc3RldmVuIHNhcm1pZW50byBzYW50b3MiLCJpYXQiOjE2NDMyNTY5NDMzMTJ9.bEYIG6L5ZWN2k33gxLOPvrjzAzcPfxrcJO76dkS2qfk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/restaurants?lat=-33.8670522&lng=151.1957362",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"restaurants"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "-33.8670522"
+						},
+						{
+							"key": "lng",
+							"value": "151.1957362"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List user transactions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWYyMWM2ZjU5OTdmYWVlNzVlZGIzOTMiLCJpc3MiOiJkYW5pZWwgc3RldmVuIHNhcm1pZW50byBzYW50b3MiLCJpYXQiOjE2NDMyNTY5NDMzMTJ9.bEYIG6L5ZWN2k33gxLOPvrjzAzcPfxrcJO76dkS2qfk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

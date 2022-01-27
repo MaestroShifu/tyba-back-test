@@ -8,6 +8,7 @@ type Enviroment = {
   PORT: number;
   SECRET_KEY: string;
   DB_URL: string;
+  GOOGLE_API: string;
 };
 
 const urlPath = '../../../.env';
@@ -23,12 +24,14 @@ const ENV_NODE: VariablesEnv = process.env.ENV_NODE
 const PORT: number = process.env.PORT ? +process.env.PORT : 3000;
 const SECRET_KEY: string = process.env.SECRET_KEY || '';
 const DB_URL: string = process.env.DB_URL || '';
+const GOOGLE_API: string = process.env.GOOGLE_API || '';
 
 const env: Enviroment = {
   ENV_NODE,
   PORT,
   SECRET_KEY,
-  DB_URL
+  DB_URL,
+  GOOGLE_API
 };
 
 export default env;

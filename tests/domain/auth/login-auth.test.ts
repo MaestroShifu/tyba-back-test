@@ -16,8 +16,7 @@ describe('Login auth', () => {
       email: 'sdanielsarsantos@gmail.com',
       name: 'daniel',
       lastName: 'sarmiento',
-      password: 'ASDFxce$',
-      language: 'en'
+      password: 'ASDFxce$'
     };
     const token = 'ujmiklop';
     const tokenGenerate = jest.fn((args) => {

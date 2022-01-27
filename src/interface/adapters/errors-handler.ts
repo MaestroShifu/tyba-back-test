@@ -9,6 +9,9 @@ class ErrorsHandler implements ErrorContract {
   errorNotFound(message: string) {
     return new ErrorHandler(HttpStatusCode.NOT_FOUND, message);
   }
+  errorUnauthorized(message: string) {
+    return new ErrorHandler(HttpStatusCode.UNAUTHORIZED, message);
+  }
 }
 
 export default ErrorsHandler;

@@ -8,3 +8,6 @@ export const validEmail = (field: string): boolean =>
 
 export const validOnlyLetters = (field: string): boolean =>
   genericValidator('^[A-Za-z ]+$', field);
+
+export const validOnlyNumbers = (field: string): boolean =>
+  genericValidator(/^-?\d*\.?\d*$/, field);

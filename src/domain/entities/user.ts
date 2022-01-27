@@ -5,7 +5,6 @@ export type User = {
   lastName: string;
   phone?: string;
   password: string;
-  language: 'es' | 'en';
 };
 
 export type PayloadToken = {

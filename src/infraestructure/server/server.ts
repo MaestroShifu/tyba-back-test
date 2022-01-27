@@ -5,6 +5,7 @@ import cors from 'cors';
 import passport from 'passport';
 import { HttpStatusCode } from '../../utils/status-code';
 import userRoutes from '../../interface/routes/user-routes';
+import restaurantRoutes from '../../interface/routes/restaurant-routes';
 import middlewareError from './middleware/middleware-error';
 import authStrategy from '../auth/auth-strategy';
 
@@ -25,15 +26,9 @@ app.use(json());
 app.get('/', (_req: Request, res: Response) => {
   res.status(HttpStatusCode.OK).send();
 });
-app.use(userRoutes);
 
-/* app.get(
-  '/secret',
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => {
-    res.json('Secret Data');
-  }
-); */
+app.use(userRoutes);
+app.use(passport.authenticate('jwt', { session: false }), restaurantRoutes);
 
 app.use(middlewareError);
 

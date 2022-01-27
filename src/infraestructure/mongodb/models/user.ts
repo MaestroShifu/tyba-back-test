@@ -26,11 +26,6 @@ const userSchema = new Schema(
     },
     phone: {
       type: Schema.Types.String
-    },
-    language: {
-      type: Schema.Types.String,
-      enum: ['es', 'en'],
-      default: 'es'
     }
   },
   {

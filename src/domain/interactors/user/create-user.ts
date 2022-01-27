@@ -4,7 +4,7 @@ import { ErrorContract } from '../../contracts/error-contracts';
 import { validEmail, validOnlyLetters } from '../utils/validators';
 import { User } from '../../entities/user';
 
-export type CreateUser = Omit<User, '_id' | 'language'>;
+export type CreateUser = Omit<User, '_id'>;
 
 const createUser =
   (
@@ -14,27 +14,22 @@ const createUser =
   ) =>
   async (user: Partial<CreateUser>): Promise<User> => {
     const { email, name, lastName, phone, password } = user;
-    // Validar campos requeridos para crear un usuario
+
     if (!password)
       throw errorContract.errorBadRequest('The password is invalid');
-
     if (!(email && validEmail(email)))
       throw errorContract.errorBadRequest('The email is invalid');
-
     if (!(name && validOnlyLetters(name)))
       throw errorContract.errorBadRequest('The name is invalid');
-
     if (!(lastName && validOnlyLetters(lastName)))
       throw errorContract.errorBadRequest('The lastName is invalid');
 
-    // Buscar por email / Validar que no exista el email
     const validUser = await userContract.findByEmail(email);
     if (validUser)
       throw errorContract.errorBadRequest('The email is already registered');
 
-    // Cifrar password
     const passwordEncrypt = authContract.passwordEncrypt(password);
-    // Crear el nuevo usuario
+
     const newUser = await userContract.create({
       email,
       name,
@@ -42,7 +37,6 @@ const createUser =
       phone,
       password: passwordEncrypt
     });
-    // Retornarlo
     return newUser;
   };
 

@@ -121,8 +121,7 @@ describe('Create User', () => {
       expect(email).toEqual(userMock.email);
       const user: User = {
         ...userMock,
-        _id: '',
-        language: 'es'
+        _id: ''
       };
       return Promise.resolve(user);
     });
@@ -162,7 +161,6 @@ describe('Create User', () => {
       const user: User = {
         ...userMock,
         _id: '',
-        language: 'es',
         password: passwordEncryptMock
       };
       return Promise.resolve(user);
