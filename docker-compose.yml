@@ -1,0 +1,35 @@
+version: '3.8'
+
+services: 
+  mongo:
+    image: 'mongo'
+    restart: unless-stopped
+    environment: 
+      MONGO_INITDB_ROOT_USERNAME: 'admin'
+      MONGO_INITDB_ROOT_PASSWORD: 'root'
+    volumes:
+      - mongo_vol:/data/db
+    ports:
+      - 27017:27017
+
+  app:
+    depends_on:
+      - mongo
+    build:
+      context: '.'
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - 3000:$PORT
+    environment:
+      ENV_NODE: 'dev'
+      PORT: 3000
+      SECRET_KEY: 'CDD445B06AA12559B0BB972638E0760096434B8D604DDDE44DCB5DF9D0D2548D'
+      DB_URL: 'mongodb://admin:root@mongo:27017'
+      GOOGLE_API: 'AIzaSyDXQuybPiPIrcj9DuVlEeZDhuDi1TEs5eg'
+    stdin_open: true
+    tty: true
+
+
+volumes: 
+  mongo_vol:
