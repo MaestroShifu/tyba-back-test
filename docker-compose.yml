@@ -24,9 +24,9 @@ services:
     environment:
       ENV_NODE: 'dev'
       PORT: 3000
-      SECRET_KEY: ''
+      SECRET_KEY: 'CDD445B06AA12559B0BB972638E0760096434B8D604DDDE44DCB5DF9D0D2548D'
       DB_URL: 'mongodb://admin:root@mongo:27017'
-      GOOGLE_API: 'AIzaSyDXQuybPiPIrcj9DuVlEeZDhuDi1TEs5eg'
+      GOOGLE_API: ''
     stdin_open: true
     tty: true
 
