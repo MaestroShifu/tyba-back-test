@@ -1,0 +1,19 @@
+# Node modules
+node_modules
+
+# Package locks
+yarn.lock
+package-lock.json
+
+# Build - dist
+build
+
+# Testing
+coverage
+
+# Config editor
+.DS_Store
+.vscode
+
+# Variables enviroment
+.env
